@@ -3,10 +3,10 @@ import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 
 // done: The Motorbike class should extend the Vehicle class
-class Motorbike extends Vehicle implements Wheel {
-  // TODO: Declare properties of the Motorbike class
-  // TODO: The properties should include vin, color, make, model, year, weight, top speed, and wheels
-  // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])
+class Motorbike extends Vehicle  {
+  // done: Declare properties of the Motorbike class
+  // done: The properties should include vin, color, make, model, year, weight, top speed, and wheels
+  // done: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])
   vin: string;
   color: string;
   make: string;
@@ -43,16 +43,18 @@ class Motorbike extends Vehicle implements Wheel {
       // Check if the wheels array has 4 elements
       // If not, create 4 new Wheel objects
       // Otherwise, use the provided wheels array
-      if (wheels.length !== 4) {
-        this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
+      if (wheels.length !== 2) {
+        this.wheels = [new Wheel(), new Wheel() ];
       } else {
         this.wheels = wheels;
       }
     }
-  // TODO: Implement the wheelie method
+  // done: Implement the wheelie method
 
-    // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-
+    // done: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
+   wheelie(){
+    console.log (`Motorbike  ${this.model}  ${ this.make} is doing a wheelie!`)
+   }
   // done: Override the printDetails method from the Vehicle class
   // done: The method should call the printDetails method of the parent class
   // done: The method should log the details of the Motorbike
@@ -77,12 +79,7 @@ override printDetails(): void {
       console.log(
         `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
       );
-      console.log(
-        `Wheel 3: ${this.wheels[2].getDiameter} inch with a ${this.wheels[2].getTireBrand} tire`
-      );
-      console.log(
-        `Wheel 4: ${this.wheels[3].getDiameter} inch with a ${this.wheels[3].getTireBrand} tire`
-      );
+      
     }
 }
 
