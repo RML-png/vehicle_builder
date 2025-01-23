@@ -389,7 +389,7 @@ class Cli {
               this.vehicles[i].turn('left');
             }
           }
-        } else if (answers.action === 'Reverse') {
+        } else if (answers.action === 'Reverse') 
           // find the selected vehicle and reverse it
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -399,13 +399,13 @@ class Cli {
             // find the selected vehicle and tow it
             for (let i = 0; i < this.vehicles.length; i++) {
               if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                this.vehicles[i].tow('Tow');
+                this.vehicles[i].Tow('Tow');
               }
             } else if (answers.action === 'Wheelie') {
               // find the selected vehicle and wheelie
               for (let i = 0; i < this.vehicles.length; i++) {
                 if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                  this.vehicles[i].wheelie(;Wheelie');
+                  this.vehicles[i].wheelie('Wheelie')
                 }
           }
         }
