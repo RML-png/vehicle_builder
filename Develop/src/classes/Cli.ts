@@ -306,8 +306,7 @@ class Cli {
         }
          else{
           truck.tow(answers.vehicleToTow)
-          this.performA
-          Actions()
+          this.performActions()
         }
         // done: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // done: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
