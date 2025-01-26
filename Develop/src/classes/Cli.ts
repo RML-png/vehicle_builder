@@ -303,9 +303,11 @@ class Cli {
         if (answers.vehicleToTow.vin===truck.vin){
         console.log ("Truck can not tow itself")  
         this.performActions()
-        } else{
+        }
+         else{
           truck.tow(answers.vehicleToTow)
-          this.performActions()
+          this.performA
+          Actions()
         }
         // done: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // done: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
@@ -393,22 +395,41 @@ class Cli {
           // find the selected vehicle and reverse it
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              this.vehicles[i].reverse('Reverse');
+              this.vehicles[i].reverse();
             }
-          } else if (answers.action === 'tow') {
+          } else if (answers.action === 'Tow') {
             // find the selected vehicle and tow it
+            let truck: Truck|undefined;
+
             for (let i = 0; i < this.vehicles.length; i++) {
-              if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                this.vehicles[i].Tow('Tow');
+              if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
+               truck = this.vehicles[i] as Truck
               }
-            } else if (answers.action === 'Wheelie') {
-              // find the selected vehicle and wheelie
-              for (let i = 0; i < this.vehicles.length; i++) {
-                if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                  this.vehicles[i].wheelie('Wheelie')
-                }
+            }
+            if(truck){
+              this.findVehicleToTow(truck)
+              return
+            } else{
+            console.log ("This action is only for trucks")
+            }
           }
-        }
+          else if (answers.action === 'Wheelie') {
+            let motorbike: Motorbike|undefined;
+
+            // find the selected vehicle and wheelie
+            for (let i = 0; i < this.vehicles.length; i++) {
+              if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
+               motorbike = this.vehicles[i] as Motorbike
+              }
+            }
+            if (motorbike){
+              motorbike.wheelie()
+            }
+            else {
+              console.log ("This action is only for motorbikes")
+            }
+          }
+
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         else if (answers.action === 'Select or create another vehicle') {
